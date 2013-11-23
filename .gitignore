@@ -1,0 +1,4 @@
+TestCamera.pro.user
+*.o
+*.so
+android-build/*
