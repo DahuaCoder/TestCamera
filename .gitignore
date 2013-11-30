@@ -2,3 +2,5 @@ TestCamera.pro.user
 *.o
 *.so
 android-build/*
+moc_*
+ui_*
