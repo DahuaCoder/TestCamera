@@ -12,13 +12,13 @@ MAKEFILE      = Makefile
 
 CC            = /home/dario/Android/android-ndk-r9b/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin/arm-linux-androideabi-gcc
 CXX           = /home/dario/Android/android-ndk-r9b/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin/arm-linux-androideabi-g++
-DEFINES       = -DQT_NO_PRINTER -DQT_NO_PRINTDIALOG -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_PRINTER -DQT_NO_PRINTDIALOG -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -Wno-psabi -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -ffunction-sections -funwind-tables -fstack-protector -fno-short-enums -DANDROID -Wa,--noexecstack -g -gdwarf-2 -marm -O0 -fno-omit-frame-pointer -Wall -Wno-psabi -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -Wno-psabi -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -ffunction-sections -funwind-tables -fstack-protector -fno-short-enums -DANDROID -Wa,--noexecstack -std=gnu++0x -g -g -gdwarf-2 -marm -O0 -fno-omit-frame-pointer -Wall -Wno-psabi -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/android-g++ -I. -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtNetwork -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore -I. -I. -I../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include -I../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include -I../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include
+INCPATH       = -I../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/android-g++ -I. -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimediaWidgets -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtNetwork -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui -I../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore -I. -I. -I../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include -I../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include -I../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include
 LINK          = /home/dario/Android/android-ndk-r9b/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin/arm-linux-androideabi-g++
-LFLAGS        = --sysroot=/home/dario/Android/android-ndk-r9b/platforms/android-9/arch-arm/ -Wl,-soname,libTestCamera.so -Wl,-rpath=/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib -Wl,--no-undefined -Wl,-z,noexecstack -shared
-LIBS          = $(SUBLIBS) -L/home/dario/Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a -L/home/dario/Android/android-ndk-r9b/platforms/android-9/arch-arm//usr/lib -L/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib -lQt5Multimedia -L/opt/android/ndk/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a -L/opt/android/ndk/platforms/android-9/arch-arm//usr/lib -lQt5Widgets -lQt5Network -lQt5Gui -lQt5Core -lGLESv2 -lgnustl_shared -llog -lz -lm -ldl -lc -lgcc
+LFLAGS        = --sysroot=/home/dario/Android/android-ndk-r9b/platforms/android-16/arch-arm/ -Wl,-soname,libTestCamera.so -Wl,-rpath=/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib -Wl,-rpath-link=/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib -Wl,--no-undefined -Wl,-z,noexecstack -shared
+LIBS          = $(SUBLIBS) -L/home/dario/Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a -L/home/dario/Android/android-ndk-r9b/platforms/android-16/arch-arm//usr/lib -L/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib -lQt5MultimediaWidgets -L/opt/android/ndk/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a -L/opt/android/ndk/platforms/android-9/arch-arm//usr/lib -lQt5Multimedia -lQt5Widgets -lQt5Network -lQt5Gui -lQt5Core -lGLESv2 -lgnustl_shared -llog -lz -lm -ldl -lc -lgcc
 AR            = /home/dario/Android/android-ndk-r9b/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin/arm-linux-androideabi-ar cqs
 RANLIB        = /home/dario/Android/android-ndk-r9b/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin/arm-linux-androideabi-ranlib
 QMAKE         = /home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/bin/qmake
@@ -273,6 +273,7 @@ Makefile: TestCamera.pro ../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/android-g
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/features/yacc.prf \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/features/lex.prf \
 		TestCamera.pro \
+		/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5MultimediaWidgets.prl \
 		/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Multimedia.prl \
 		/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Gui.prl \
 		/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Core.prl \
@@ -374,6 +375,7 @@ Makefile: TestCamera.pro ../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/android-g
 ../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/features/yacc.prf:
 ../../Qt5.2.0/5.2.0-rc1/android_armv7/mkspecs/features/lex.prf:
 TestCamera.pro:
+/home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5MultimediaWidgets.prl:
 /home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Multimedia.prl:
 /home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Gui.prl:
 /home/dario/Qt5.2.0/5.2.0-rc1/android_armv7/lib/libQt5Core.prl:
@@ -463,31 +465,31 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/parallel.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compiletime_settings.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdio \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdio.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/android/api-level.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdint.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdio.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs_elf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/android/api-level.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdint.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_wchar_limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/stddef.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/compiler.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/kernel.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysmacros.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/types.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdlib \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdlib.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/string.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/malloc.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/alloca.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/strings.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/memory.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdlib.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/string.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/malloc.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/alloca.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/strings.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/memory.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/limits \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/tr1/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/tags.h \
@@ -495,9 +497,9 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/algorithmfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compatibility.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sched.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sched.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/time.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/equally_split.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find_selectors.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_algo.h \
@@ -515,31 +517,31 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/new_allocator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/random \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cmath \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/math.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/page.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/math.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/internal_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/syslimits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/page.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/string \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stringfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/char_traits.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/postypes.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwchar \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wchar.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wchar.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/siginfo.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/localefwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/c++locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/clocale \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/locale.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/iosfwd \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/ctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/ctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/ostream_insert.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/cxxabi_forced.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/range_access.h \
@@ -547,24 +549,24 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/atomicity.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr-default.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pthread.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/unistd.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/select.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/capability.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pathconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pthread.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/sigcontext.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/unistd.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/select.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/capability.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pathconf.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/atomic_word.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/string_conversions.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cerrno \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno-base.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno-base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/functional_hash.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_string.tcc \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/random.h \
@@ -622,7 +624,7 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_ios.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/locale_facets.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/streambuf_iterator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_inline.h \
@@ -822,6 +824,18 @@ moc_camera.cpp: ../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMainWin
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qtouchdevice.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qtabwidget.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qicon.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/QCamera \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamera.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediacontrol.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaservice.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraexposure.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qmetaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamerafocus.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraimageprocessing.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/memory \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_raw_storage_iter.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/unique_ptr.h \
@@ -901,31 +915,31 @@ main.o: main.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/parallel.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compiletime_settings.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdio \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdio.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/android/api-level.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdint.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdio.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs_elf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/android/api-level.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdint.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_wchar_limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/stddef.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/compiler.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/kernel.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysmacros.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/types.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdlib \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdlib.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/string.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/malloc.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/alloca.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/strings.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/memory.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdlib.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/string.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/malloc.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/alloca.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/strings.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/memory.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/limits \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/tr1/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/tags.h \
@@ -933,9 +947,9 @@ main.o: main.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/algorithmfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compatibility.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sched.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sched.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/time.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/equally_split.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find_selectors.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_algo.h \
@@ -953,31 +967,31 @@ main.o: main.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/new_allocator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/random \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cmath \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/math.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/page.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/math.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/internal_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/syslimits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/page.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/string \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stringfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/char_traits.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/postypes.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwchar \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wchar.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wchar.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/siginfo.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/localefwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/c++locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/clocale \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/locale.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/iosfwd \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/ctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/ctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/ostream_insert.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/cxxabi_forced.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/range_access.h \
@@ -985,24 +999,24 @@ main.o: main.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/atomicity.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr-default.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pthread.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/unistd.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/select.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/capability.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pathconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pthread.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/sigcontext.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/unistd.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/select.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/capability.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pathconf.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/atomic_word.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/string_conversions.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cerrno \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno-base.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno-base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/functional_hash.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_string.tcc \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/random.h \
@@ -1060,7 +1074,7 @@ main.o: main.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_ios.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/locale_facets.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/streambuf_iterator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_inline.h \
@@ -1260,6 +1274,18 @@ main.o: main.cpp camera.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qtouchdevice.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qtabwidget.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qicon.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/QCamera \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamera.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediacontrol.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaservice.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraexposure.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qmetaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamerafocus.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraimageprocessing.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/memory \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_raw_storage_iter.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/unique_ptr.h \
@@ -1327,31 +1353,31 @@ camera.o: camera.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/parallel.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compiletime_settings.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdio \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdio.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/android/api-level.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdint.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/_wchar_limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysmacros.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdio.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/cdefs_elf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/android/api-level.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdint.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/_wchar_limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/stddef.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/compiler.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/posix_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/kernel.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysmacros.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/types.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdlib \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/stdlib.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/string.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/malloc.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/alloca.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/strings.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/memory.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/stdlib.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/string.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/malloc.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/alloca.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/strings.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/memory.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/limits \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/tr1/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/tags.h \
@@ -1359,9 +1385,9 @@ camera.o: camera.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/algorithmfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/compatibility.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sched.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sched.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/time.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/equally_split.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/parallel/find_selectors.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_algo.h \
@@ -1379,31 +1405,31 @@ camera.o: camera.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/new_allocator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/random \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cmath \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/math.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/internal_types.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/machine/limits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/syslimits.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/page.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/math.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/internal_types.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/machine/limits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/syslimits.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/page.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/string \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stringfwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/char_traits.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/postypes.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwchar \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wchar.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/time.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wchar.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/time.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/siginfo.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/siginfo.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cstdint \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/localefwd.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/c++locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/clocale \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/locale.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/locale.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/iosfwd \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/ctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/ctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/ostream_insert.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/cxxabi_forced.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/range_access.h \
@@ -1411,24 +1437,24 @@ camera.o: camera.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/atomicity.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/gthr-default.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pthread.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/unistd.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/select.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/sys/sysconf.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/capability.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/pathconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pthread.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/signal.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/sigcontext.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/unistd.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/select.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/sys/sysconf.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/capability.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/pathconf.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/atomic_word.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/ext/string_conversions.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cerrno \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/linux/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno.h \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/asm-generic/errno-base.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/linux/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/asm-generic/errno-base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/functional_hash.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_string.tcc \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/random.h \
@@ -1486,7 +1512,7 @@ camera.o: camera.cpp camera.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/basic_ios.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/locale_facets.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/cwctype \
-		../../Android/android-ndk-r9b/platforms/android-9/arch-arm/usr/include/wctype.h \
+		../../Android/android-ndk-r9b/platforms/android-16/arch-arm/usr/include/wctype.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/streambuf_iterator.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include/bits/ctype_inline.h \
@@ -1686,13 +1712,67 @@ camera.o: camera.cpp camera.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qtouchdevice.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qtabwidget.h \
 		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qicon.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/QCamera \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamera.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediacontrol.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmultimedia.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaservice.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraexposure.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediaenumdebug.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qmetaobject.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcamerafocus.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qcameraimageprocessing.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/memory \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/stl_raw_storage_iter.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/unique_ptr.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/shared_ptr.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/bits/shared_ptr_base.h \
 		../../Android/android-ndk-r9b/sources/cxx-stl/gnu-libstdc++/4.8/include/backward/auto_ptr.h \
-		ui_camera.h
+		ui_camera.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/QVariant \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QAction \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qaction.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qactiongroup.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QApplication \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qapplication.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qcoreapplication.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qeventloop.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qdesktopwidget.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qguiapplication.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qinputmethod.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QButtonGroup \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qbuttongroup.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QHeaderView \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qheaderview.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractitemview.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qframe.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qabstractitemmodel.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qitemselectionmodel.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractitemdelegate.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qstyleoption.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractspinbox.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtGui/qvalidator.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtCore/qregularexpression.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qslider.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractslider.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qstyle.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qtabbar.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qrubberband.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMenu \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qmenu.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QMenuBar \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qmenubar.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QPushButton \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qpushbutton.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/qabstractbutton.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtWidgets/QWidget \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimediaWidgets/qvideowidget.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		../../Qt5.2.0/5.2.0-rc1/android_armv7/include/QtMultimedia/qmediabindableinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o camera.o camera.cpp
 
 moc_camera.o: moc_camera.cpp 

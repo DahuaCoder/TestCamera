@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include <QCamera>
-
-#include <memory>
+#include <QCameraImageCapture>
+#include <QCameraViewfinder>
 
 namespace Ui {
 class Camera;
@@ -18,15 +18,21 @@ public:
     explicit Camera(QWidget *parent = 0);
     ~Camera();
 
+    void initialize();
+
 private slots:
     void updateCameraDevice(QAction* action);
+    void startCamera();
+    void stopCamera();
+    void takePicture();
 
 private:
     void setCamera(const QByteArray& cameraDevice);
 
 private:
-    std::shared_ptr<Ui::Camera> m_ptrUi;
-    std::shared_ptr<QCamera> m_ptrCamera;
+    Ui::Camera* m_ptrUi;
+    QCamera* m_ptrCamera;
+    QCameraImageCapture* m_ptrImageCapture;
 };
 
 #endif // CAMERA_H

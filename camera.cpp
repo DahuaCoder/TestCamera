@@ -3,47 +3,78 @@
 
 Camera::Camera(QWidget *parent) :
     QMainWindow(parent),
-    m_ptrUi(std::make_shared<Ui::Camera>()),
-    m_ptrCamera()
+    m_ptrUi(new Ui::Camera),
+    m_ptrCamera(NULL),
+    m_ptrImageCapture(NULL)
 {
     m_ptrUi->setupUi(this);
+}
 
-    QString outputMsg;  // Debug
+Camera::~Camera()
+{
+    delete m_ptrUi;
+    delete m_ptrCamera;
+    delete m_ptrImageCapture;
+}
 
+void Camera::initialize()
+{
+    QByteArray cameraDevice;
     QActionGroup* videoDevicesGroup = new QActionGroup(this);
+    videoDevicesGroup->setExclusive(true);
     for (const QByteArray& deviceName : QCamera::availableDevices()) {
         QString description = m_ptrCamera->deviceDescription(deviceName);
-        outputMsg.append(description).append(QString("\n"));    // Debug
         QAction* videoDeviceAction = new QAction(description, videoDevicesGroup);
         videoDeviceAction->setCheckable(true);
         videoDeviceAction->setData(QVariant(deviceName));
+
+        if (cameraDevice.isEmpty()) {
+            cameraDevice = deviceName;
+            setCamera(cameraDevice);
+            videoDeviceAction->setChecked(true);
+        }
 
         m_ptrUi->menuDevices->addAction(videoDeviceAction);
     }
 
     connect(videoDevicesGroup, SIGNAL(triggered(QAction*)), SLOT(updateCameraDevice(QAction*)));
-
-    m_ptrUi->label->setText(outputMsg); // Debug
-
 }
 
-Camera::~Camera()
+void Camera::startCamera()
 {
-
+    m_ptrCamera->start();
 }
 
+void Camera::stopCamera()
+{
+    m_ptrCamera->stop();
+}
+
+void Camera::takePicture()
+{
+    m_ptrCamera->searchAndLock();
+    m_ptrImageCapture->capture();
+    m_ptrCamera->unlock();
+}
 
 void Camera::updateCameraDevice(QAction* action)
 {
-
+    setCamera(action->data().toByteArray());
 }
 
 void Camera::setCamera(const QByteArray& cameraDevice)
 {
     if (cameraDevice.isEmpty()) {
-        m_ptrCamera = std::make_shared<QCamera>();
+        m_ptrCamera = new QCamera;
     }
     else {
-        m_ptrCamera = std::make_shared<QCamera>(cameraDevice);
+        m_ptrCamera = new QCamera(cameraDevice);
     }
+
+    m_ptrCamera->setViewfinder(m_ptrUi->viewFinder);
+    m_ptrUi->viewFinder->show();
+    m_ptrImageCapture = new QCameraImageCapture(m_ptrCamera);
+    m_ptrCamera->setCaptureMode(QCamera::CaptureStillImage);
+
+    connect(m_ptrUi->captureButton, SIGNAL(clicked()), SLOT(takePicture()));
 }
